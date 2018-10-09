@@ -1,0 +1,48 @@
+body {
+  margin:0;
+  background: $dark_bg;
+  color: $white_color;
+  font-family: 'Proxima Nova Soft','Helvetica Neue',sans-serif;
+  line-height: 1.5;
+
+  &:global(.resize) {
+
+    * {
+      transiton: unset !important;
+    }
+  }
+}
+
+.app {
+  min-height: 100vh;
+}
+
+.overlay {
+  position: fixed;
+  background: rgba(255, 255, 255, .5);
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+}
+
+a,
+a:hover,
+a:focus,
+a:active {
+  outline: none !important;
+}
+
+
+@media (max-width: 568px) {
+
+  .app {
+    font-size: vw(14);
+  }
+}
+
+@media (min-width: 569px) {
+
+  .app {
+    font-size: 14px;
+  }
+}

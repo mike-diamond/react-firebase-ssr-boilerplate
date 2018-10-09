@@ -1,0 +1,93 @@
+.addChatModal {
+  text-align: center;
+  width: 100%;
+  color: $dark_color;
+}
+
+.text {
+  text-align: left;
+}
+
+.inputWrapper {
+  display: block;
+  border: 1px solid $dark_color;
+  border-radius: 5px;
+
+  &.error {
+    border-color: lighten($btn_red, 10%);
+    background: #f9dfe5;
+    color: lighten($btn_red, 10%);
+  }
+}
+
+
+@include media-mobile {
+
+  .addChatModal {
+    padding: vw(20);
+  }
+
+  .title {
+    font-size: vw(14);
+  }
+
+  .authProviders {
+    margin-top: vw(10);
+  }
+
+  .text {
+    font-size: vw(14);
+  }
+
+  .inputWrapper {
+    margin-top: vw(10);
+    padding: 0 vw(15);
+
+    + .text {
+      margin-top: vw(20);
+    }
+  }
+
+  .input {
+
+    input {
+      height: vw(45);
+    }
+  }
+
+  .button {
+    margin-top: vw(20);
+  }
+}
+
+@include media-except-mobile {
+
+  .authProviders {
+    margin-top: 10px;
+  }
+
+  .text {
+    font-size: 14px;
+  }
+
+  .inputWrapper {
+    width: 350px;
+    margin-top: 10px;
+    padding: 0 15px;
+
+    + .text {
+      margin-top: 20px;
+    }
+  }
+
+  .input {
+
+    input {
+      height: 45px;
+    }
+  }
+
+  .button {
+    margin-top: 20px;
+  }
+}

@@ -1,0 +1,151 @@
+.selectContainer {
+  position: relative;
+  background: none;
+  background-color: #fff;
+  border: $border;
+  border-radius: 5px;
+  white-space: nowrap;
+  box-sizing: border-box;
+
+  &::after {
+    position: absolute;
+    top: 50%;
+    pointer-events: none;
+  }
+
+  &.placeholdered {
+    border-color: lighten($btn_red, 10%);
+
+    .select,
+    .defaultOption {
+      color: lighten($btn_red, 10%);
+    }
+  }
+}
+
+.errored,
+.error {
+
+  .select {
+    background: #f9dfe5;
+    border-color: lighten($btn_red, 10%);
+  }
+
+  .placeholder {
+    color: lighten($btn_red, 10%);
+
+    &:before {
+      background: #f9dfe5;
+    }
+  }
+}
+
+.select {
+  width: 100%;
+  height: 100%;
+  background: none;
+  border: 0;
+  outline: none;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #000;
+  border-radius: 5px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+.placeholder {
+  position: absolute;
+  margin: 0;
+  transition: all .2s ease 0s;
+  cursor: text;
+  font-weight: 200;
+  @include no-select();
+  pointer-events: none;
+
+  span {
+    z-index: 1;
+    position: relative;
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    height: 1px;
+    background: #fff;
+    left: 0;
+  }
+}
+
+
+@include media-mobile {
+
+  .selectContainer {
+    height: vw(55);
+
+    + .selectContainer {
+      margin-top: vw(15);
+    }
+
+    &::after {
+      @include simpleArrow('down', vw(12), 1px, $main_dark);
+      margin-top: vw(-10);
+      right: vw(14);
+    }
+  }
+
+  .select {
+    padding: vw(22) vw(25) vw(13) vw(15);
+    font-size: vw(16);
+  }
+
+  .placeholder {
+    padding: 0 vw(5);
+    top: 0;
+    left: vw(10);
+    font-size: vw(10);
+    line-height: vw(22);
+
+    &.empty {
+      font-size: vw(13);
+      line-height: vw(55);
+    }
+  }
+}
+
+@include media-except-mobile {
+
+  .selectContainer {
+    height: 48px;
+
+    + .selectContainer {
+      margin-top: 15px;
+    }
+
+    &::after {
+      @include simpleArrow('down', 12px, 1px, $main_dark);
+      margin-top: -10px;
+      right: 14px;
+    }
+  }
+
+  .select {
+    padding: 0 30px 0 15px;
+    font-size: 13px;
+  }
+
+  .placeholder {
+    padding: 0 5px;
+    font-size: 10px;
+    top: -9px;
+    left: 10px;
+
+    &.empty {
+      top: 13px;
+      left: 9px;
+      font-size: 14px;
+    }
+  }
+}

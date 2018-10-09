@@ -1,0 +1,128 @@
+.btn {
+  cursor: pointer;
+  display: inline-block;
+  outline: 0;
+  border: 0 !important;
+  border-radius: 5px;
+  vertical-align: baseline;
+  font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
+  padding: .78571429em 1.5em;
+  text-transform: none;
+  text-shadow: none;
+  font-style: normal;
+  text-align: center;
+  text-decoration: none;
+  box-sizing: border-box;
+
+  @include btn-background($btn_blue);
+  @include no-select();
+  color: $main_dark;
+
+  &.transparent {
+    opacity: 0;
+    pointer-events: 0;
+    visibility: hidden;
+  }
+
+  &.uppercase {
+    text-transform: uppercase;
+  }
+
+  &.dark {
+    background: transparent;
+    color: $main_bg;
+    border: 2px solid $main_bg !important;
+  }
+
+  &.brand {
+    color: rgba(255,255,255,1);
+    background-color: $btn_red;
+    transition: all .5s ease;
+
+    &:hover {
+      background-color: lighten($btn_red, 10%);
+    }
+  }
+
+  &.big {
+    display: inline-flex;
+    justify-content: center;
+  }
+
+  &.disabled,
+  &.disabled:hover {
+    background-color: $btn_grey !important;
+    color: darken($btn_grey, 20%) !important;
+    cursor: default;
+  }
+
+  &.disabledEvents {
+    pointer-events: none;
+  }
+
+  &.link {
+    background-color: transparent;
+    color: $main_dark;
+    padding: 0 0 5px;
+    border-bottom: 2px solid transparent !important;
+    border-radius: 0;
+
+    &:hover {
+      background-color: transparent;
+      border-bottom: 2px solid $main_dark !important;
+    }
+
+    &.brand {
+      color: $btn_red;
+      border-bottom: 2px solid transparent !important;
+
+      &:hover {
+        color: lighten($btn_red, 10%);
+        border-bottom: 2px solid lighten($btn_red, 10%) !important;
+      }
+    }
+  }
+}
+
+.block {
+  width: 100%;
+}
+
+
+@include media-mobile {
+
+  .btn {
+    line-height: vw(35);
+
+    + .btn {
+      margin-top: vw(15);
+    }
+
+    &.big {
+      padding: vw(20) vw(50);
+    }
+
+    &.link {
+      padding: 0 0 vw(5);
+    }
+  }
+}
+
+@include media-except-mobile {
+
+  .btn {
+    line-height: 26px;
+
+    + .btn {
+      margin-top: 15px;
+    }
+
+    &.big {
+      padding: 20px 80px;
+    }
+
+    &.link {
+      padding: 0 0 5px;
+    }
+  }
+}

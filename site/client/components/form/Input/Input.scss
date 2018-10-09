@@ -1,0 +1,95 @@
+.inputWrapper {
+  position: relative;
+  display: flex;
+  cursor: auto;
+  align-items: center;
+  overflow: hidden;
+  width: 100%;
+
+  input {
+    width: 100%;
+    color: inherit;
+    background: transparent;
+    border: none;
+    outline: none;
+    box-sizing: border-box;
+    box-shadow: none !important;
+    -webkit-appearance: none;
+
+    font-size: inherit;
+    line-height: inherit;
+    font-weight: inherit;
+    font-family: inherit;
+    letter-spacing: inherit;
+    padding: 0;
+
+    &:focus,
+    &.notEmpty {
+
+      + .placeholder {
+        top: 50%;
+        transform: translate3d(-100%, -50%, 0);
+      }
+    }
+  }
+}
+
+.placeholder {
+  position: absolute;
+  margin: 0;
+  transition: all .2s ease 0s;
+  cursor: text;
+  pointer-events: none;
+  @include no-select();
+
+  span {
+    z-index: 1;
+    position: relative;
+  }
+
+  top: 50%;
+  left: 0;
+  transform: translate3d(0, -50%, 0);
+}
+
+[data-error="true"] {
+
+  .error {
+    width: 100%;
+    left: 0;
+    position: absolute;
+
+    opacity: 0;
+    visibility: hidden;
+
+    text-align: left;
+    cursor: text;
+    pointer-events: none;
+    transition: all 0.25s ease;
+  }
+
+  .notEmpty {
+
+    + .error {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+}
+
+
+@include media-mobile {
+
+  .error {
+    top: vw(1);
+    font-size: vw(9);
+  }
+}
+
+@include media-except-mobile {
+
+  .error {
+    top: 1px;
+    font-size: 9px;
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "rules": {
+    ".read": "false",
+    ".write": "false",
+    "chatMessages": {
+      ".read": "true",
+      ".write": "true",
+      "${id}": {
+        ".indexOn": "added"
+      }
+    },
+    "chats": {
+      ".read": "true",
+      ".write": "true",
+      ".indexOn": "added"
+    }
+  }
+}

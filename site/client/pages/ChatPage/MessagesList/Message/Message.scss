@@ -1,0 +1,143 @@
+.ava {
+  background: $dark_color;
+  border-radius: 100%;
+}
+
+.message {
+  display: flex;
+
+  &.reverse {
+    text-align: right;
+    justify-content: flex-start;
+    flex-direction: row-reverse;
+  }
+
+  &.noPaddingTop {
+    padding-top: 0;
+  }
+}
+
+.textWrapper {
+  flex: 1;
+}
+
+.text {
+  display: inline-block;
+  position: relative;
+  background: $white_color;
+  border-radius: 5px;
+
+  &::after {
+    position: absolute;
+    transform: translate3d(0, -50%, 0);
+  }
+}
+
+
+@include media-mobile {
+
+  .message {
+    padding: vw(10) vw(20);
+
+    &:first-child {
+      padding-bottom: vw(20);
+    }
+
+    &:last-child {
+      padding-top: vw(20);
+    }
+  }
+
+  .ava {
+    width: vw(45);
+    height: vw(45);
+  }
+
+  .text {
+    padding: vw(10);
+    line-height: vw(25);
+    box-shadow: 0 0 vw(20) rgba(81, 140, 205, 0.15);
+  }
+
+  .left {
+    margin-left: vw(65);
+
+    &.withTail {
+      margin-left: vw(20);
+
+      &::after {
+        top: vw(23);
+        left: vw(-7);
+        @include triangle('left', vw(7), $white_color);
+      }
+    }
+  }
+
+  .right {
+    margin-right: vw(65);
+
+    &.withTail {
+      margin-right: vw(20);
+
+      &::after {
+        top: vw(23);
+        right: vw(-7);
+        @include triangle('right', vw(7), $white_color);
+      }
+    }
+  }
+}
+
+@include media-except-mobile {
+
+  .message {
+    padding: 10px 20px;
+
+    &:first-child {
+      padding-bottom: 20px;
+    }
+
+    &:last-child {
+      padding-top: 20px;
+    }
+  }
+
+  .ava {
+    width: 45px;
+    height: 45px;
+  }
+
+  .text {
+    padding: 10px;
+    line-height: 25px;
+    box-shadow: 0 0 20px rgba(81, 140, 205, 0.15);
+  }
+
+  .left {
+    margin-left: 65px;
+
+    &.withTail {
+      margin-left: 20px;
+
+      &::after {
+        top: 23px;
+        left: -7px;
+        @include triangle('left', 7px, $white_color);
+      }
+    }
+  }
+
+  .right {
+    margin-right: 65px;
+
+    &.withTail {
+      margin-right: 20px;
+
+      &::after {
+        top: 23px;
+        right: -7px;
+        @include triangle('right', 7px, $white_color);
+      }
+    }
+  }
+}

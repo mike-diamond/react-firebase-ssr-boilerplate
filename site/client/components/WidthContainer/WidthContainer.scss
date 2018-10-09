@@ -1,0 +1,33 @@
+.widthContainer {
+  position: relative;
+  box-sizing: border-box;
+}
+
+.container {
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+}
+
+@include media-mobile {
+
+  .widthContainer {
+    margin: 0 vw(10);
+  }
+}
+
+@include media-except-mobile {
+
+  .widthContainer {
+    margin: 0 45px;
+  }
+}
+
+@include media-desktop {
+
+  .container {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+}

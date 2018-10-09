@@ -1,0 +1,25 @@
+@include media-mobile {
+
+  .menuPointer {
+    width: vw(25);
+    height: 100%;
+
+    display: flex;
+    cursor: pointer;
+    position: absolute;
+
+    top: 0;
+    right: vw(20);
+    z-index: 20;
+    overflow: hidden;
+
+    svg {
+      transition: transform ease .25s;
+      width: 100%;
+
+      &.active {
+        transform: rotate(-90deg);
+      }
+    }
+  }
+}

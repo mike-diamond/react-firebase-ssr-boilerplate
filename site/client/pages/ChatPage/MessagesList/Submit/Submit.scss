@@ -1,0 +1,99 @@
+.submit {
+  position: relative;
+  background: $white_color;
+  border-top: 1px solid #edf1f5;
+  cursor: text;
+
+  p {
+    color: $light_color;
+  }
+
+  input {
+    color: $dark_color;
+  }
+}
+
+.iconWrapper {
+  height: 100%;
+  top: 0;
+  right: 0;
+  position: absolute;
+  cursor: pointer;
+  visibility: hidden;
+}
+
+.icon {
+  position: absolute;
+  top: 50%;
+  transform: translate3d(0, -50%,0);
+  background: url('./images/enter.svg') no-repeat;
+  background-size: cover;
+  opacity: 0;
+  transition: all 0.25s ease;
+}
+
+.filled,
+.input[data-focus="true"],
+.input[data-error="true"], {
+
+  + .iconWrapper {
+    visibility: visible;
+
+    .icon {
+      opacity: 1;
+    }
+  }
+}
+
+
+@include media-mobile {
+
+  .submit {
+    padding: 0 vw(55) 0 vw(20);
+    box-shadow: 0 0 vw(20) rgba(81, 140, 205, 0.15);
+  }
+
+  .iconWrapper {
+    width: vw(55);
+  }
+
+  .icon {
+    right: vw(20);
+    width: vw(20);
+    height: vw(15);
+  }
+
+  .input {
+
+    > p,
+    > input {
+      line-height: vw(45);
+    }
+  }
+}
+
+@include media-except-mobile {
+
+  .submit {
+    padding: 0 55px 0 20px;
+    box-shadow: 0 0 20px rgba(81, 140, 205, 0.15);
+  }
+
+  .iconWrapper {
+    width: 55px;
+  }
+
+  .icon {
+    right: 20px;
+    width: 20px;
+    height: 15px;
+  }
+
+  .input {
+
+    > p,
+    > input {
+      line-height: 45px;
+    }
+  }
+}

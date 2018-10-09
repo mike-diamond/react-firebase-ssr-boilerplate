@@ -1,0 +1,47 @@
+.container {
+  display: flex;
+  height: 100vh !important;
+}
+
+.chat {
+  flex: 1;
+  overflow: hidden;
+}
+
+
+@include media-mobile {
+
+  .container {
+    min-height: $media-mobile-end;
+  }
+
+  .wrapper {
+    margin: 0 !important;
+  }
+}
+
+@include media-except-mobile {
+
+  .container {
+    padding: 45px 0;
+  }
+
+  .chat {
+    border-radius: 15px;
+    box-shadow: 0 2px 20px rgba(0,0,0,.25);
+  }
+}
+
+@include media-tablet-portrait {
+
+  .container {
+    min-height: $media-tablet-landscape-start;
+  }
+}
+
+@include media-tablet-landscape-and-higher {
+
+  .container {
+    min-height: $media-tablet-portrait-start;
+  }
+}

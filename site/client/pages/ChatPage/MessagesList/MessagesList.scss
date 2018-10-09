@@ -1,0 +1,41 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  background: $light_bg;
+  color: $dark_color;
+}
+
+.heading {
+  position: relative;
+  text-align: center;
+  color: $dark_color;
+  border-bottom: 1px solid #edf1f5;
+}
+
+.messagesWrapper {
+  flex: 1;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  position: relative;
+}
+
+.messages {
+  display: flex;
+  flex-direction: column-reverse;
+  //flex-direction: column;
+}
+
+
+@include media-mobile {
+
+  .heading {
+    line-height: vw(45);
+  }
+}
+
+@include media-except-mobile {
+
+  .heading {
+    line-height: 45px;
+  }
+}

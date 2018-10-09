@@ -1,0 +1,392 @@
+@function vw($value) {
+  @return (0.3125vw * $value);
+}
+
+@mixin fontLine($fontSize: 5, $lineHeight: 5) {
+  @media (max-width: 568px) {
+    font-size: $fontSize + vw;
+    line-height: $lineHeight + vw;
+  }
+
+  @media (max-width: 320px) {
+    font-size: $fontSize * 3.2px;
+    line-height: $lineHeight * 3.2px;
+  }
+}
+
+@mixin widthHeight($width: 5, $height: 5) {
+  @media (max-width: 568px) {
+    width: $width + vw;
+    height: $height + vw;
+  }
+
+  @media (max-width: 320px) {
+    width: $width * 3.2px;
+    height: $height * 3.2px;
+  }
+}
+
+@mixin width($width: 5) {
+  @media (max-width: 568px) {
+    width: $width + vw;
+  }
+
+  @media (max-width: 320px) {
+    width: $width * 3.2px;
+  }
+}
+
+@mixin padding($tb: 5, $lr: 5) {
+  @media (max-width: 568px) {
+    padding: $tb + vw + ' ' + $lr + vw;
+  }
+
+  @media (max-width: 320px) {
+    padding-top: $tb * 3.2px;
+    padding-bottom: $tb * 3.2px;
+
+    padding-left: $lr * 3.2px;
+    padding-right: $lr * 3.2px;
+  }
+}
+
+@mixin vwSquare($value: 5) {
+  @media (max-width: 568px) {
+    min-width: $value + vw;
+    height: $value + vw;
+  }
+
+  @media (max-width: 320px) {
+    min-width: $value * 3.2px;
+    height: $value * 3.2px;
+  }
+}
+
+@mixin fill {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+
+@mixin btn-background($color) {
+  background-color: $color;
+  border: 2px solid $color;
+
+  &:hover {
+    background-color: darken($color, 10%);
+    border: 2px solid darken($color, 10%);
+  }
+
+  &:active {
+    background-color: darken($color, 20%);
+    border: 2px solid darken($color, 20%);
+  }
+
+  &.bordered {
+    background-color: transparent;
+    color: $color;
+
+    &:hover {
+      border-color: $color;
+      color: #fff;
+      background-color: $color;
+    }
+
+    &:active {
+      background-color: darken($color, 20%);
+      border-color: darken($color, 20%);
+      color: #fff;
+    }
+  }
+}
+
+@mixin tick($color) {
+  background: transparent;
+  transform: rotate(-45deg);
+  border-top: 0 !important;
+  border-right: 0 !important;
+
+  @include media-mobile {
+    width: vw(10);
+    height: vw(6);
+    border: vw(2) solid $color;
+  }
+
+  @include media-except-mobile {
+    width: 10px;
+    height: 6px;
+    border: 2px solid $color;
+  }
+}
+
+@mixin no-select {
+  -webkit-user-select: none;  /* Chrome all / Safari all */
+  -moz-user-select: none;     /* Firefox all */
+  -ms-user-select: none;      /* IE 10+ */
+  user-select: none;
+}
+
+@mixin no-click {
+  pointer-events: none;
+}
+
+@mixin no-overflow {
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+@mixin triangle($dir, $size, $color) {
+  content: '';
+  width: 0;
+  height: 0;
+  display: block;
+  line-height: 0;
+  border: $size transparent solid;
+  font-size: 0;
+
+  @if ($color == 'brand') {
+    @if ($dir == 'up') {
+      @include brand-color(border-bottom-color);
+      border-top-width: 0;
+    }
+    @else if ($dir == 'right') {
+      @include brand-color(border-left-color);
+      border-right-width: 0;
+    }
+    @else if ($dir == 'down') {
+      @include brand-color(border-top-color);
+      border-bottom-width: 0;
+    }
+    @else if ($dir == 'left') {
+      @include brand-color(border-right-color);
+      border-left-width: 0;
+    }
+  }
+  @else {
+    @if ($dir == 'up') {
+      border-bottom-color: $color;
+      border-top-width: 0;
+    }
+    @else if ($dir == 'right') {
+      border-left-color: $color;
+      border-right-width: 0;
+    }
+    @else if ($dir == 'down') {
+      border-top-color: $color;
+      border-bottom-width: 0;
+    }
+    @else if ($dir == 'left') {
+      border-right-color: $color;
+      border-left-width: 0;
+    }
+  }
+}
+
+@mixin arrow {
+  display: inline-block;
+  position: absolute;
+
+  @include media-mobile {
+    width: vw(20);
+    height: vw(20);
+    right: vw(20);
+  }
+
+  @include media-except-mobile {
+    width: 20px;
+    height: 20px;
+    right: 20px;
+  }
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    background-color: #000065;
+    display: inline-block;
+    transition: all .2s ease;
+
+    @include media-mobile {
+      top: vw(10);
+      width: vw(12);
+      height: 1px;
+    }
+
+    @include media-except-mobile {
+      top: 10px;
+      width: 12px;
+      height: 1px;
+    }
+  }
+
+  &::before {
+    left: 0;
+    transform: rotate(45deg);
+  }
+
+  &::after {
+    right: 0;
+    transform: rotate(-45deg);
+  }
+
+  &[active="true"] {
+
+    &::before {
+      transform: rotate(-45deg);
+    }
+
+    &::after {
+      transform: rotate(45deg);
+    }
+  }
+}
+
+@mixin simpleArrow($dir, $size, $width, $color) {
+  content: '';
+  width: $size;
+  height: $size;
+  display: block;
+  border-top: $width solid $color;
+  border-right: $width solid $color;
+
+  @if ($dir == 'up') {
+    transform: rotate(-45deg);
+  }
+  @else if ($dir == 'right') {
+    transform: rotate(45deg);
+  }
+  @else if ($dir == 'down') {
+    transform: rotate(135deg);
+  }
+  @else if ($dir == 'left') {
+    transform: rotate(-135deg);
+  }
+}
+
+@mixin infoBlock() {
+  border-bottom: 1px solid $main_dark;
+
+  &:first-child {
+    margin-top: 0;
+  }
+
+  &:last-child {
+    border-bottom: 0;
+    padding-bottom: 0;
+  }
+
+  @include media-mobile {
+    margin-top: vw(20);
+    padding-bottom: vw(20);
+  }
+
+  @include media-except-mobile {
+    margin-top: 20px;
+    padding-bottom: 20px;
+  }
+}
+
+$media-mobile-end                   : 568px;
+$media-tablet-portrait-start        : $media-mobile-end + 1px;
+$media-tablet-portrait-end          : 768px;
+$media-tablet-landscape-start       : $media-tablet-portrait-end + 1px;
+$media-tablet-landscape-end         : 1024px;
+$media-desktop-start                : $media-tablet-landscape-end + 1px;
+
+
+$media-desktop-rule                       : "(min-width: " + $media-desktop-start + ")";
+$media-tablet-landscape-rule              : "(min-width: " + $media-tablet-landscape-start + ") and (max-width: " + $media-tablet-landscape-end + ")";
+$media-tablet-rule                        : "(min-width: " + $media-tablet-portrait-start + ") and (max-width: " + $media-tablet-landscape-end ")";
+$media-tablet-portrait-rule               : "(min-width: " + $media-tablet-portrait-start + ") and (max-width: " + $media-tablet-portrait-end + ")";
+$media-mobile-rule                        : "(max-width: " + $media-mobile-end + ")";
+$media-tablet-landscape-and-higher-rule   : "(min-width: " + $media-tablet-landscape-start + ")";
+$media-tablet-landscape-and-lower-rule    : "(max-width: " + $media-tablet-landscape-end + ")";
+$media-except-mobile-rule                 : "(min-width: " + $media-tablet-portrait-start + ")";
+$media-except-desktop-rule                : "(max-width: " + $media-tablet-landscape-end +  ")";
+$media-tablet-portrait-and-higher-rule    : "(min-width: " + $media-tablet-portrait-start +  ")";
+$media-tablet-portrait-and-lower-rule     : "(max-width: " + $media-tablet-portrait-end +  ")";
+
+
+@mixin media-desktop {
+  @media #{$media-desktop-rule} {
+    @content;
+  }
+}
+
+@mixin media-tablet-landscape {
+  @media #{$media-tablet-landscape-rule} {
+    @content;
+  }
+}
+
+@mixin media-tablet {
+  @media #{$media-tablet-rule} {
+    @content;
+  }
+}
+
+@mixin media-tablet-portrait {
+  @media #{$media-tablet-portrait-rule} {
+    @content;
+  }
+}
+
+@mixin media-mobile {
+  @media #{$media-mobile-rule} {
+    @content;
+  }
+}
+
+// * and higher
+
+@mixin media-tablet-landscape-and-higher {
+  @media #{$media-tablet-landscape-and-higher-rule} {
+    @content;
+  }
+}
+
+@mixin media-tablet-portrait-and-higher {
+  @media #{$media-tablet-portrait-and-higher-rule} {
+    @content;
+  }
+}
+
+@mixin media-except-mobile {
+  @media #{$media-except-mobile-rule} {
+    @content;
+  }
+}
+
+
+// * and lower
+
+@mixin media-except-desktop {
+  @media #{$media-except-desktop-rule} {
+    @content;
+  }
+}
+
+@mixin media-tablet-portrait-and-lower {
+  @media #{$media-tablet-portrait-and-lower-rule} {
+    @content;
+  }
+}
+
+@mixin media-tablet-landscape-and-lower {
+  @media #{$media-tablet-landscape-and-lower-rule} {
+    @content;
+  }
+}
+
+
+// retina
+
+@mixin media-retina {
+  $retina-variable: "only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 144dpi)";
+  @media #{$retina-variable} { @content; }
+}
+
+@mixin media-retina-3x {
+  $retina-variable: "only screen and (-webkit-min-device-pixel-ratio: 2.5), only screen and (min-resolution: 288dpi)";
+  @media #{$retina-variable} { @content; }
+}

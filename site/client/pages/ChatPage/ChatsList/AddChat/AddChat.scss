@@ -1,0 +1,59 @@
+.addChat {
+  display: flex;
+  align-items: center;
+  background: #3c5064;
+  color: $white_color;
+  border-top: 1px solid $dark_border;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.icon {
+  background: url('./images/plus.svg') no-repeat;
+}
+
+
+@include media-mobile {
+
+  .addChat {
+    height: vw(45);
+    padding: 0 vw(20);
+    line-height: vw(45);
+  }
+
+  .icon {
+    width: vw(25);
+    height: vw(25);
+  }
+
+  .text {
+    padding-left: vw(18);
+  }
+}
+
+@include media-except-mobile {
+
+  .addChat {
+    height: 45px;
+    padding: 0 20px;
+    line-height: 45px;
+  }
+
+  .icon {
+    width: 21px;
+    height: 21px;
+    margin-left: 9px;
+    transition: all 0.25s ease;
+  }
+
+  .active {
+
+    .icon {
+      margin-left: 0;
+    }
+  }
+
+  .text {
+    padding-left: 20px;
+  }
+}
