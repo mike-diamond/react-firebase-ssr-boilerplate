@@ -15,7 +15,7 @@ React app boilerplate with server side rendering, code and styles splitting, mul
 `cd functions && npm install && cd ../`
 3. Add your config to `/firebase-config.json`
 4. Add alias and projectId to `/.firebaserc`
-5. Add service account data to `/site/middleware/service-account.json`
+5. Add service account data to `/server/site/middleware/service-account.json`
 
 #### Run project
 - Now you can start the project in development mode:
