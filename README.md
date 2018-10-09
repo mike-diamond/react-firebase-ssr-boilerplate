@@ -7,9 +7,12 @@ React app boilerplate with server side rendering, code and styles splitting, mul
 [![Month Downloads](https://img.shields.io/npm/dm/react-firebase-ssr-boilerplate.svg)](http://npm-stat.com/charts.html?package=react-firebase-ssr-boilerplate)
 [![Npm Licence](https://img.shields.io/npm/l/react-firebase-ssr-boilerplate.svg)](https://www.npmjs.com/package/react-firebase-ssr-boilerplate)
 
+### Instalation
+`npm install react-firebase-ssr-boilerplate`
+
 ### Usage
 
-#### Initial installation
+### Initial installation
 1. Install npm dependencies in the root folder.
 
     Run: `npm install` 
@@ -20,7 +23,7 @@ React app boilerplate with server side rendering, code and styles splitting, mul
 4. Add alias and projectId to `/.firebaserc`
 5. Add service account data to `/server/site/middleware/service-account.json`
 
-#### Run project
+### Run project
 - After initial installation you can start the project in development mode:
 
     `npm run site:dev`
@@ -34,18 +37,18 @@ React app boilerplate with server side rendering, code and styles splitting, mul
 
 ### Boilerplate composition
 
-##### - Multilanguage internationalisation
+#### - Multilanguage internationalisation
 Based on [react-intl](https://github.com/yahoo/react-intl). Translation switches on change
 store property `state.me.locale`.
 All translations defines in `messages.js` file in the root of each component.
 
-##### - Code splitting
+#### - Code splitting
 Based on [react-loadable](https://github.com/jamiebuilds/react-loadable) and splits code for each page in routes.
 
-##### - Styles splitting
+#### - Styles splitting
 Based on [mini-css-extract-plugin](https://github.com/webpack-contrib/mini-css-extract-plugin) which splits
 styles for each page and [media-query-splitting-plugin](https://github.com/mike-diamond/media-query-splitting-plugin)
 which splits styles by media query (mobile, tabletLandscape, tabletPortrait and desktop).
 
-##### - SEO
+#### - SEO
 Based on [react-helmet](https://github.com/nfl/react-helmet) which allows to manage SEO tags (title, meta etc)

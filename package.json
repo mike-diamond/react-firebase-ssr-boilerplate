@@ -1,6 +1,6 @@
 {
   "name": "react-firebase-ssr-boilerplate",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "React app with server side rendering, code and styles splitting, i18n",
   "main": "./bin/server",
   "scripts": {
