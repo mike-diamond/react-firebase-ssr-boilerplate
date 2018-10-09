@@ -3,8 +3,6 @@ import ProgressBarPlugin from 'progress-bar-webpack-plugin'
 import AppConfigPlugin from 'app-config/webpack'
 import config from 'app-config'
 import rulesMap from './rules'
-import MiniCssExtractPlugin from 'mini-css-extract-plugin'
-// import ExtractTextPlugin from 'extract-text-webpack-plugin'
 
 
 const rules = Object.keys(rulesMap)
@@ -27,7 +25,6 @@ const webpackConfig = {
 
   resolve: {
     alias: {
-      // 'common': config.paths.base('common'),
       'client': config.paths.site('client'),
     },
     modules: config.modules.map((modulePath) => config.paths.base(modulePath)),
@@ -46,5 +43,6 @@ const webpackConfig = {
     ),
   ],
 }
+
 
 export default webpackConfig
