@@ -1,6 +1,8 @@
 # react-firebase-ssr-boilerplate
 React app boilerplate with server side rendering, code and styles splitting, multilingual i18n
 
+[DEMO](https://react-firebase-chat-11658.firebaseapp.com/)
+
 [![Npm Version](https://badge.fury.io/js/react-firebase-ssr-boilerplate.svg)](https://www.npmjs.com/package/react-firebase-ssr-boilerplate)
 [![Month Downloads](https://img.shields.io/npm/dm/react-firebase-ssr-boilerplate.svg)](http://npm-stat.com/charts.html?package=react-firebase-ssr-boilerplate)
 [![Npm Licence](https://img.shields.io/npm/l/react-firebase-ssr-boilerplate.svg)](https://www.npmjs.com/package/react-firebase-ssr-boilerplate)
