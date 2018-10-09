@@ -1,5 +1,6 @@
 const firebase = require('firebase-admin')
-const serviceAccount = require('./react-firebase-chat-11658-firebase-adminsdk-r2vld-286945aa85.json')
+const serviceAccount = require('./service-account.json')
+
 
 const ref = firebase.initializeApp({
   credential: firebase.credential.cert(serviceAccount),

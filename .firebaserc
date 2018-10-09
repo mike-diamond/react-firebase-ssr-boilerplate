@@ -1,5 +1,6 @@
+// TODO: ADD HERE ALIAS AND PROJECTID (projectId same as in firebase-config.json):
 {
   "projects": {
-    "reactChat": "react-firebase-chat-11658"
+    "someProjectAlias": "projectId"
   }
 }

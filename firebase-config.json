@@ -1,1 +1,9 @@
-// TODO: PASTE HERE FIREBASE CONFIG JSON!
+// TODO: PASTE HERE YOUR FIREBASE CONFIG JSON!
+{
+  "apiKey": "...",
+  "authDomain": "...",
+  "databaseURL": "...",
+  "projectId": "...",
+  "storageBucket": "...",
+  "messagingSenderId": "..."
+}
