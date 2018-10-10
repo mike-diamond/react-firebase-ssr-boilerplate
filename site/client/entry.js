@@ -1,5 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+import { preloadReady } from 'react-loadable'
 import { Provider } from 'react-redux'
 import { syncHistoryWithStore } from 'react-router-redux'
 import { Router, browserHistory } from 'react-router'
@@ -20,16 +21,19 @@ const init = (initialState, isDev) => {
     selectLocationState: ({ routing }) => routing,
   })
 
-  return renderAction(
-    <Provider store={store}>
-      <LanguageProvider messages={translationMessages}>
-        <Router history={history}>
-          {routes}
-        </Router>
-      </LanguageProvider>
-    </Provider>,
-    document.getElementById('app')
-  )
+  return preloadReady()
+    .then(() =>
+      renderAction(
+        <Provider store={store}>
+          <LanguageProvider messages={translationMessages}>
+            <Router history={history}>
+              {routes}
+            </Router>
+          </LanguageProvider>
+        </Provider>,
+        document.getElementById('app')
+      )
+    )
 }
 
 
