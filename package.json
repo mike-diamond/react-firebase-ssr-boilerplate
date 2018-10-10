@@ -1,6 +1,6 @@
 {
   "name": "react-firebase-ssr-boilerplate",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "React app with server side rendering, code and styles splitting, i18n",
   "main": "./bin/server",
   "scripts": {
@@ -20,6 +20,12 @@
     "type": "git",
     "url": "git+https://github.com/mike-diamond/react-firebase-ssr-boilerplate.git"
   },
+  "keywords": [
+    "SSR",
+    "react",
+    "firebase",
+    "boilerplate"
+  ],
   "author": "Mike Diamond",
   "license": "MIT",
   "bugs": {
