@@ -1,6 +1,6 @@
 {
   "name": "react-firebase-ssr-boilerplate",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "React app with server side rendering, code and styles splitting, i18n",
   "main": "./bin/server",
   "scripts": {
@@ -42,7 +42,7 @@
     "express-device": "^0.4.2",
     "firebase": "^5.5.3",
     "firebase-admin": "^6.0.0",
-    "firebase-connect": "^1.1.4",
+    "firebase-connect": "^1.1.55",
     "js-cookie": "^2.2.0",
     "react-css-modules": "^4.7.7",
     "react-dom": "^16.5.2",

@@ -3,7 +3,10 @@ import cx from 'classnames'
 import actions from 'redux/actions'
 import { modals } from 'helpers'
 import { connect } from 'redaction'
-import { firebaseConnect } from 'firebase-connect'
+import {
+  firebaseConnect,
+  // firestoreConnect, // use firestoreConnect if you using firestore
+} from 'firebase-connect'
 
 import cssModules from 'react-css-modules'
 import styles from './Chat.scss'
@@ -161,7 +164,7 @@ export default class Chat extends PureComponent {
       className, fields, chats, activeChat, chatMessages, endAt,
       isLoadedChatMessages, isMobile, isTabletPortrait, isToggleActive,
     } = this.props
-
+console.log(this.props)
     const leftStyleName = cx('left', {
       'fullWidth': isToggleActive,
     })
